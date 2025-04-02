@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Domain.Repository;
 using Domain.SeedWork.Notification;
 using Infra.Data;
+using Infra.Data.Repository;
 using Infra.Utils.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +22,7 @@ namespace Infra.IoC
             #endregion
 
             #region Repositories
+            services.AddScoped<IPeopleRepository, PeopleRepository>();
             #endregion
         }
 
