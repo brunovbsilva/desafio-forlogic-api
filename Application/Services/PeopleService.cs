@@ -21,8 +21,8 @@ public class PeopleService(INotification notification, IPeopleRepository reposit
 
     public async Task<BaseResponse<List<PersonDto>>> ListPersonAsync()
     {
-        var list = await repository.GetAll().Select(x => (PersonDto)x).ToListAsync();
-        return new GenericResponse<List<PersonDto>>(list);
+        var list = repository.GetAll().Select(x => (PersonDto)x).ToList();
+        return await Task.FromResult(new GenericResponse<List<PersonDto>>(list));
     }
 
     public async Task<BaseResponse<PersonDto>> RegisterPersonAsync(RegisterPersonRequest request)

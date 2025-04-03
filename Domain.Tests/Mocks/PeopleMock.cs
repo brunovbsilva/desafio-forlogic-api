@@ -4,7 +4,7 @@ using Moq;
 
 namespace Domain.Tests.Mocks;
 
-internal class PeopleMock : BaseEntityMock<Person>
+public class PeopleMock : BaseEntityMock<Person>
 {
     private readonly Mock<INotification> _notification = new ();
     public override Person GetEntity()

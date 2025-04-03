@@ -2,7 +2,7 @@
 
 namespace Domain.Tests.Mocks;
 
-internal class BaseEntityMock<T>
+public class BaseEntityMock<T>
 {
     protected Faker _faker = new("pt_BR");
     public virtual T GetEntity()
