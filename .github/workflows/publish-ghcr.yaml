@@ -14,6 +14,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Replace variables
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: '${{ github.workspace }}/API/appsettings.json'
+        env:
+          ConnectionStrings.Postgres: "Host=db.bvsilva.com;Port=15432;Database=forlogic;Username=forlogic_user;Password=forlogic_password"
+          ConnectionStrings.Redis: "redis.bvsilva.com:16379"
+
       - name: Login to GitHub Container Registry
         run: |
           docker login --username ${{ github.actor }} --password ${{ secrets.GHCR_TOKEN }} ghcr.io
