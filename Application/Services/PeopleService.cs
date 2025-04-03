@@ -6,7 +6,6 @@ using Domain.SeedWork.Notification;
 using Domain.Services;
 using Domain.Services.Requests;
 using Domain.Services.Responses;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace Application.Services;
