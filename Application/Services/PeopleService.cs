@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Entities;
 using Domain.Entities.Dtos;
 using Domain.Repository;
 using Domain.SeedWork.Notification;
@@ -20,8 +21,10 @@ public class PeopleService(INotification notification, IPeopleRepository reposit
         throw new NotImplementedException();
     }
 
-    public Task<BaseResponse<PersonDto>> RegisterPersonAsync(RegisterPersonRequest request)
+    public async Task<BaseResponse<PersonDto>> RegisterPersonAsync(RegisterPersonRequest request)
     {
-        throw new NotImplementedException();
+        var person = Person.Factory.Create(request, notification);
+        await repository.InsertWithSaveChangesAsync(person);
+        return new GenericResponse<PersonDto>(person);
     }
 }

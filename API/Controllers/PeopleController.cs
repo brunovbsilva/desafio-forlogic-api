@@ -7,7 +7,7 @@ namespace API.Controllers;
 public class PeopleController(IPeopleService service) : BaseController
 {
     [HttpPost]
-    public async Task<IActionResult> RegisterPersonAsync(RegisterPersonRequest request) => Ok(await service.RegisterPersonAsync(request));
+    public async Task<IActionResult> RegisterPersonAsync([FromBody] RegisterPersonRequest request) => Ok(await service.RegisterPersonAsync(request));
     [HttpGet]
     public async Task<IActionResult> ListPersonAsync() => Ok(await service.ListPersonAsync());
     [HttpGet("score")]
