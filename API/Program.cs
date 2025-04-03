@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using API.Configurations;
 using API.Middlewares;
 using HealthChecks.UI.Client;
 using Infra.IoC;
@@ -9,7 +10,7 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var apiName = "Template API";
+var apiName = "ForLogic API";
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
@@ -24,7 +25,6 @@ builder.Services.AddLocalHealthChecks(builder.Configuration);
 #endregion
 
 #region Security Injections
-builder.Services.AddLocalSecurity(builder.Configuration);
 builder.Services.AddLocalCors();
 #endregion
 
@@ -38,6 +38,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseCors("AllowAll");
+    app.ApplyMigration();
 }
 else
 {

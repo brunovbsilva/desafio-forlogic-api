@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using Domain;
+using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Data.Repository
