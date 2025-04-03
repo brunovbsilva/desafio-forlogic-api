@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using API.Configurations;
 using API.Middlewares;
 using HealthChecks.UI.Client;
 using Infra.IoC;
@@ -38,6 +39,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseCors("AllowAll");
+    app.ApplyMigration();
 }
 else
 {
