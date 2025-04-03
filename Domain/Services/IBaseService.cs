@@ -1,7 +1,6 @@
-﻿namespace Domain.Services
+﻿namespace Domain.Services;
+
+public interface IBaseService
 {
-    public interface IBaseService
-    {
-        void AddNotification(string message);
-    }
+    void AddNotification(string message);
 }
