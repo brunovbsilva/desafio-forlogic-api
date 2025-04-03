@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Application.Services;
 using Domain.Repository;
 using Domain.SeedWork.Notification;
+using Domain.Services;
 using Infra.Data;
 using Infra.Data.Repository;
 using Infra.Utils.Configuration;
@@ -19,6 +21,7 @@ namespace Infra.IoC
         {
             #region Services
             services.AddScoped<INotification, Notification>();
+            services.AddScoped<IPeopleService, PeopleService>();
             #endregion
 
             #region Repositories

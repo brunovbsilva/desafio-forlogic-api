@@ -25,7 +25,6 @@ builder.Services.AddLocalHealthChecks(builder.Configuration);
 #endregion
 
 #region Security Injections
-builder.Services.AddLocalSecurity(builder.Configuration);
 builder.Services.AddLocalCors();
 #endregion
 
